@@ -1,6 +1,6 @@
 module Readline
   module History
-    LOG = "#{ENV['HOME']}/.irb-history"
+    LOG = "#{ENV['HOME']}/.irb/history"
 
     def self.write_log(line)
       File.open(LOG, 'ab') {|f| f << "#{line}\n"}
