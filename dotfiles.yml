@@ -2,3 +2,4 @@
 files: 
 - ~/.irbrc
 - ~/.irb/history.rb
+- ~/.bashrc
