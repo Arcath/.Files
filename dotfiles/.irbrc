@@ -13,6 +13,18 @@ IRB.conf[:SAVE_HISTORY] = 100
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 
 #Definitions
-def test_string
-	"The quick brown fox jumped over the lazy dog"
+def s	#Testing string
+	@s = @s || "The quick brown fox jumped over the lazy dog"
+	@s
+end
+
+def a	#Testing Array
+	array=[]
+	1.upto(10).map { |i| array.push(i) }
+	@a = @a || array
+	@a
+end
+
+def i	#Testing Integer
+	rand(100)
 end
