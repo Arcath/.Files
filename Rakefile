@@ -22,7 +22,13 @@ end
 
 desc "Deploys all the files back to where they came from"
 task :deploy do
-	
+	yaml=YAML::load_file("dotfiles.yml")
+	yaml["files"].each do |file|
+		fname=file.gsub(/.*\/(.*?)/,"")
+		dir=file.gsub(fname,"")
+		system("mkdir -p #{dir}") unless dir == "~/"
+		system("cp dotfiles/#{fname} #{file}")
+	end	
 end
 
 desc "Removes a file"
