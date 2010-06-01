@@ -33,5 +33,11 @@ end
 
 desc "Removes a file"
 task :remove, :file do |t, args|
-	
+	files=[]
+	yaml=YAML::load_file("dotfiles.yml")
+	yaml["files"].each do |file|
+		files.push(file) unless file == args[:file]
+	end
+	yaml["files"] = files
+	File.open("dotfiles.yml", File::WRONLY|File::TRUNC|File::CREAT) { |out| YAML.dump(yaml, out) }
 end
