@@ -44,7 +44,7 @@ bakwht='\e[47m'   # White
 txtrst='\e[0m'    # Text Reset
 
 #Variables
-PS1="$txtblu[\t]$bldblu[\u@\h]$txtblu[\w] $txtrst"
+PS1="\[$txtblu\][\t]\[$bldblu\][\u@\h]\[$txtblu\][\W] \[$txtrst\]"
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
 #Aliases
