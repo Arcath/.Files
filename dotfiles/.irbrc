@@ -1,7 +1,9 @@
 #Require lines
 require 'irb/completion'	#Adds Tab Completion
-require '~/.irb/history'
-require 'irb/ext/save-history'
+require '~/.irb/history'	#My history logging module
+require 'irb/ext/save-history'	#IRB History Module
+require 'rubygems'		#Ruby Gems include
+				#Allows for require 'gem' in irb
 
 #Run Commands
 Readline::History.start_session_log
@@ -27,4 +29,9 @@ end
 
 def i	#Testing Integer
 	rand(100)
+end
+
+def f
+	#Testing Float
+	rand(10000).to_f / 100
 end
