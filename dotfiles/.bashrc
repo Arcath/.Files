@@ -53,5 +53,9 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+#Rails Specific Aliases
+alias rgen='script/generate'
+alias rserver='screen script/server'
+
 #Ubuntu Gem Fix
 export PATH=/var/lib/gems/1.8/bin:$PATH
