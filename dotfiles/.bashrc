@@ -57,5 +57,8 @@ alias egrep='egrep --color=auto'
 alias rgen='script/generate'
 alias rserver='screen script/server'
 
+#.Scripts
+alias dotscripts='sh ~/.scripts/run.sh'
+
 #Ubuntu Gem Fix
 export PATH=/var/lib/gems/1.8/bin:$PATH

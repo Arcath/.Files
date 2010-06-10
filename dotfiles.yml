@@ -3,3 +3,6 @@ files:
 - ~/.irbrc
 - ~/.irb/history.rb
 - ~/.bashrc
+- ~/.scripts/Rakefile
+- ~/.scripts/lib/functions.rb
+- ~/.scripts/run.sh

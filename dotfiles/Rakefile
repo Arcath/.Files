@@ -1,0 +1,11 @@
+require 'lib/functions.rb'
+
+desc "Puts the Current IP Address"
+task :ipaddr do
+	puts ip_information[:ip]
+end
+
+desc "Returns the IP Range"
+task :iprange do
+	puts ip_information[:range]
+end
