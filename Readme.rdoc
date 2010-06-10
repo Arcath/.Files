@@ -1,3 +1,27 @@
 = .Files
 
 My Dotfiles, with a Rakefile for management.
+
+== Usage
+
+My dotfiles use rake to make gitting them easier.
+
+After you pull the repository you will want to deploy the files to the correct location
+
+    rake deploy
+
+This copies all the files to where they appear in dotfiles.yml
+
+After you've made some edits you will probabbly want to pull all the changed files into the dotfiles folder, this is done with:
+
+    rake prepare
+
+This copies all the files in dotfiles.yml to the dotfiles folder.
+
+To add files (e.g. .somethingrc) use:
+
+    rake add["~/.somethingrc"]
+
+For personal files always use ~ so it doesnt matter what user is logged in.
+
+Remove works in the same way.
