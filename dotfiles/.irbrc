@@ -35,3 +35,9 @@ def f
 	#Testing Float
 	rand(10000).to_f / 100
 end
+
+def ls	#List current Directory
+	s=""
+	Dir.glob('./*').each { |f| s+="#{f}\n" }
+	puts s
+end
