@@ -1,11 +1,22 @@
 require 'lib/functions.rb'
 
-desc "Puts the Current IP Address"
-task :ipaddr do
-	puts ip_information[:ip]
+namespace :ip do
+	desc "Returns the Current IP Address"
+	task :addr do
+		puts ip_information[:ip]
+	end
+
+	desc "Returns the IP Range"
+	task :range do
+		puts ip_information[:range]
+	end
 end
 
-desc "Returns the IP Range"
-task :iprange do
-	puts ip_information[:range]
+desc "Help Message"
+task :help do
+	puts "dotscripts is a collection of usefull scripts that for the most part just return info (because reading the ifconfig output yourself is too hard)"
+	puts "Avaliable Tasks:"
+	rake=`rake -T`
+	puts cleanup_tasks(rake)
+	puts "The task list can be brought up with \"dotscripts -T\""
 end

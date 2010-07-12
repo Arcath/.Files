@@ -16,3 +16,10 @@ end
 def get_info(line)
 	@ip_info[:ip] = line.scan(/inet addr:(.*?)  B/).join if line =~ /inet addr:.*?  B/ && !(line =~ /inet addr:127.0.0.1/)
 end
+
+def cleanup_tasks(rake)
+	rake=rake.gsub("\n","\n\t")
+	rake=rake.gsub(/\(in .*?\/.scripts\)/,"")
+	rake=rake.gsub(/rake/,"dotscripts")
+	rake
+end
