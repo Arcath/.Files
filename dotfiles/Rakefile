@@ -12,6 +12,37 @@ namespace :ip do
 	end
 end
 
+namespace :proxy do
+	desc "Lists avliable proxy configs"
+	task :list do
+		puts "Avaliable Proxy Configurations"
+		proxy_list
+	end
+	
+	desc "Adds a proxy server"
+	task :add, :key, :http, :https do |task, args|
+		yaml=proxy_config
+		yaml["proxies"].push([args[:key],args[:http],args[:https]])
+		puts "Added"
+		File.open("proxies.yml", File::WRONLY|File::TRUNC|File::CREAT) { |out| YAML.dump(yaml, out) }
+	end
+
+	desc "Activates a given proxy"
+	task :use, :key do |task, args|
+		config=[]
+		proxy_config["proxies"].each do |proxy|
+			config = proxy if proxy[0] == args[:key]
+		end
+		if config != [] then
+			puts "Settings proxy to #{config[0]}"
+			system("export http_proxy=#{config[1]}")
+			system("export https_proxy=#{config[2]}")
+		else
+			puts "#{args[:key]} not found"
+		end
+	end
+end
+
 desc "Help Message"
 task :help do
 	puts "dotscripts is a collection of usefull scripts that for the most part just return info (because reading the ifconfig output yourself is too hard)"

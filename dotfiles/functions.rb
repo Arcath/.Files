@@ -23,3 +23,18 @@ def cleanup_tasks(rake)
 	rake=rake.gsub(/rake/,"dotscripts")
 	rake
 end
+
+def proxy_list
+	proxy_config["proxies"].each do |conf|
+		puts conf[0]
+	end
+end
+
+def proxy_config
+	begin
+		yaml=YAML::load_file("proxies.yml")
+	rescue 
+		yaml={ "proxies" => [] }
+	end
+	yaml
+end
