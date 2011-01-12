@@ -6,6 +6,11 @@ promptinit
 autoload -U colors && colors
 
 PROMPT="%{$fg[blue]%}[%*]%B[%n@%m]%b%{$fg[blue]%}[%~]%{$reset_color%} "
+case $TERM in
+    xterm*)
+        precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+        ;;
+esac
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
@@ -42,3 +47,6 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 alias ls="ls --color=auto"
 alias l="ls -l"
 alias grep="grep --color=auto"
+
+#Gems Path
+export PATH=/var/lib/gems/1.8/bin:$PATH
