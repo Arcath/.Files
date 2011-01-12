@@ -6,3 +6,4 @@ files:
 - ~/.scripts/Rakefile
 - ~/.scripts/lib/functions.rb
 - ~/.scripts/run.sh
+- ~/.zshrc
