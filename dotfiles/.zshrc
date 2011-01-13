@@ -42,6 +42,9 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+#Rake
+zstyle ':completion:*:rake:*' command 'rake -T'
+
 #Aliases
 #ls
 alias ls="ls --color=auto"
@@ -50,3 +53,8 @@ alias grep="grep --color=auto"
 
 #Gems Path
 export PATH=/var/lib/gems/1.8/bin:$PATH
+
+#Functions
+local gitdir="$(git branch 2>/dev/null)"
+RPROMPT=$gitdir
+
